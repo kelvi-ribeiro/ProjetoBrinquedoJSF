@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+
+<ui:composition template="modelo.xhtml">
+
+	<ui:define name="titulo">#{msgs.tituloLogin}</ui:define>
+
+	<ui:define name="conteudo">
+		<p:panelGrid class="centered col-md-12 text center" columns="1">
+        <h1>#{msgs.titulo2Login}</h1> 
+        <p:graphicImage class="" alt="Topo Site" 
+			url="img/topo_site2.png"
+			 />
+        </p:panelGrid>
+
+      
+		
+		
+		<p:panelGrid class="table table-hover text-centered col-xs-6 col-sm-6  col-md-6 col-lg-6" columns="1">
+		  
+			<p:outputLabel  for="usuario" value="#{msgs.usuarioLogin}:" />
+			<p:inputText  styleClass="form-control"  id="usuario" value="#{loginMB.usuario}" required="true">
+			</p:inputText>
+			
+			
+			
+			
+			<p:outputLabel  for="senha" value="#{msgs.usuarioSenha}:" />
+			<h:inputSecret styleClass="form-control" id="senha" value="#{loginMB.senha}" required="true">
+			</h:inputSecret>
+			
+			
+			
+			
+			<p:commandButton ajax="false" styleClass="btn btn-default"    value="#{msgs.btnAutentificar}"
+				action="#{loginMB.acaoAutenticar}"></p:commandButton>
+				
+				</p:panelGrid>
+					
+	</ui:define>
+
+</ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+

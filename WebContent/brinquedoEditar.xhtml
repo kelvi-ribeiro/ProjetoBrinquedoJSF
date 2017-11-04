@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="modelo.xhtml">
+
+	<ui:define name="titulo">#{msgs.tituloEditarBrinquedo}</ui:define>
+
+	<ui:define name="conteudo">
+		<div class="container">
+		<div class="row">
+		<div class="page-header">
+		
+		<h1>#{msgs.titulo2EditarBrinquedo}</h1> 
+        
+        
+
+      </div>
+      
+      		<div class="form-group textoGrande col-offset-6 centered">
+				
+				<h:outputLabel value="#{msgs.campoCodigo}:" for="codigo1" rendered="#{brinquedoMB.brinquedo.codigo!=null}" /> 
+				<h:outputText value="#{brinquedoMB.brinquedo.codigo}"/>
+					
+				
+				
+			</div>
+
+			<div class="form-group textoGrande">
+				
+				<h:inputHidden id="codigo" value="#{brinquedoMB.brinquedo.codigo}" /> 
+					
+				
+				
+			</div>
+			
+			<div class="form-group">
+			<h:outputLabel for="tipegoria" value="#{msgs.campoTipo}:" />
+			<h:selectOneMenu styleClass="form-control" id="tipegoria" value="#{brinquedoMB.brinquedo.tipo}"
+				required="true" converter="tip-converter">
+				<f:selectItems value="#{brinquedoMB.tipos}" var="tip"
+					itemLabel="#{tip.nome}"></f:selectItems>
+			</h:selectOneMenu>
+			</div>
+			
+			
+			<div class="form-group  textoGrande">
+				<h:outputLabel for="nome" value="#{msgs.campoNome}:" />
+				<h:inputText styleClass="form-control" id="nome"
+					value="#{brinquedoMB.brinquedo.nome}" required="true">
+				</h:inputText>
+			</div>
+			
+			<div class="form-group  textoGrande">
+			<h:outputLabel for="custo" value="#{msgs.campoPrecoCusto}:" />
+			<h:inputText id="custo" styleClass="form-control" value="#{brinquedoMB.brinquedo.precoAluguel}"
+				required="true">
+				<f:convertNumber pattern="###,###,##0.00" />
+			</h:inputText>
+			</div>
+
+			
+			<div class="form-group  textoGrande">
+			<h:outputLabel for="venda" value="#{msgs.campoPrecoVenda}:" />
+			<h:inputText id="venda" styleClass="form-control" value="#{brinquedoMB.brinquedo.precoVenda}"
+				required="true">
+				<f:convertNumber pattern="###,###,##0.00" />
+			</h:inputText>
+			</div>
+			
+			<div class="form-group  textoGrande">
+			<h:outputLabel for="nome_forn" value="#{msgs.campoFornecedor}:" />
+			<h:inputText id="nome_forn" styleClass="form-control"
+				value="#{brinquedoMB.brinquedo.fornecedor}" required="true">
+			</h:inputText>
+			</div>
+			
+			
+			<div class="form-group  textoGrande">
+			<h:outputLabel value="#{msgs.campoDataComprado}:" for="data"></h:outputLabel>
+				<p:calendar id="data"  value="#{brinquedoMB.brinquedo.dataComprado}" size="110"
+					required="true" requiredMessage="O Campo Data é obrigatório.">
+				</p:calendar>
+			</div>
+			<h:outputText value="" />
+			<h:panelGroup>
+				<h:commandButton styleClass="btn btn-success" value="#{msgs.btnSalvar}" action="#{brinquedoMB.acaoSalvar}"></h:commandButton>
+				-
+				<h:commandButton styleClass="btn btn-danger" value="#{msgs.btnCancelar}"
+					action="#{brinquedoMB.acaoCancelar}" immediate="true"></h:commandButton>
+			</h:panelGroup>
+		</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><ui:insert name="titulo">Título</ui:insert>
+	</title>
+	<link rel="icon" href="img/icone2.gif" type="image/x-icon" />
+	
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js" />
+	
+</h:head>
+
+<h:body style="background: url('img/images.jpg') repeat !important;">
+
+	<h:form>
+<p:panelGrid   columns="8" rendered="#{ not empty loginMB.usuario }">
+	
+	
+	 
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+  
+        
+        <p:menuitem value="HOME" url="home.jsf" icon="ui-icon-document"/>
+            
+            
+       
+ 
+        <p:menuitem value="#{msgs.tituloVitrine}" target="_blank" url="http://www.serginhodiversoes.com.br/"  icon="ui-icon-pencil"/>
+            
+       
+ 
+        
+        
+ 
+        <p:menuitem type="button" 
+            value="#{msgs.btnCadastro}" 
+             action="#{brinquedoMB.acaoListar}" icon="ui-icon-circle-triangle-e
+ 
+ " />
+          
+            <p:menuitem type="button" 
+            value="#{msgs.btnSair}" 
+             actionListener="#{loginMB.acaoSair}" icon="ui-icon-extlink" />
+             
+           
+        
+    </p:menubar>
+
+		
+		
+		
+		
+
+	</p:panelGrid>
+	
+	
+		<h:messages errorStyle="color: red" infoStyle="color: blue"
+			warnStyle="color: yellow" />
+
+		<ui:insert name="cabecalho"></ui:insert>
+		<ui:insert name="conteudo"></ui:insert>
+</h:form>
+	
+</h:body>
+</html>
