@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
@@ -12,103 +13,108 @@
 
 	<ui:define name="conteudo">
 	
-	<div style="margin-top:10px;" class="container">
-	<div class="row">
-		<h:commandLink styleClass="btn btn-warning" action="#{brinquedoMB.acaoAbrirInclusao}"
-			value="#{msgs.btnNovoBrinquedo}"></h:commandLink>
-		-
-		<h:commandLink   styleClass="btn btn-info" action="#{loginMB.acaoExibirHome}" value="#{msgs.btnVoltar}"></h:commandLink>
-
-			<div class="form-group">
-			<h:outputLabel  for="tipo" value="#{msgs.rotuloFiltarTipo}" />
-			<h:selectOneMenu  styleClass="form-control" id="tipo"
+	<p:panelGrid columns="8" >
+	<h:panelGroup style="padding-right:9px;">
+		<p:commandLink  style="margin-right:8px;" styleClass="btn btn-warning" action="#{brinquedoMB.acaoAbrirInclusao}"
+			value="#{msgs.btnNovoBrinquedo}"></p:commandLink>
+		
+		<p:commandLink   styleClass="btn btn-info" action="#{loginMB.acaoExibirHome}" value="#{msgs.btnVoltar}"></p:commandLink>
+	</h:panelGroup>
+	
+	
+			<h:panelGroup>
+			<p:outputLabel  for="tipo" value="#{msgs.rotuloFiltarTipo}" />
+			<p:selectOneMenu  styleClass="form-control" id="tipo"
 				value="#{brinquedoMB.filtroTipo}" required="false"
 				converter="tip-converter">
 				<f:selectItem  itemLabel="#{msgs.rotuloSelecione}..." itemValue="" />
 				<f:selectItems  value="#{brinquedoMB.tipos}" var="tip"
 					itemLabel="#{tip.nome}"></f:selectItems>
-			</h:selectOneMenu>
-			</div>
-			<div class="form-group">
+			</p:selectOneMenu>
+			</h:panelGroup>
+			<h:panelGroup>
 			<h:outputLabel for="nome" value="#{msgs.rotuloFiltarNome}:" />
-			<h:inputText styleClass="form-control" id="nome" value="#{brinquedoMB.filtroNome}"
+			<p:inputText styleClass="form-control" id="nome" value="#{brinquedoMB.filtroNome}"
 				required="false">
-			</h:inputText>
-			</div>
-			<h:outputText value="" />
-			<h:commandLink style="margin-right:4px;" styleClass="btn btn-success" value="#{msgs.btnPesquisar}" action="#{brinquedoMB.acaoPesquisar}" ><span class="glyphicon glyphicon-search"></span></h:commandLink>
-			<h:commandLink styleClass="btn btn-info" value="#{msgs.btnAtualizar} " action="#{brinquedoMB.acaoListar}" ><span class="glyphicon glyphicon-refresh"></span></h:commandLink>
-
+			</p:inputText>
+			
 		
+			
+			<h:outputText value="" />
+			<p:commandLink style="margin-right:4px;" styleClass="btn btn-success" value="#{msgs.btnPesquisar}" action="#{brinquedoMB.acaoPesquisar}" ><span class="glyphicon glyphicon-search"></span></p:commandLink>
+			<p:commandLink styleClass="btn btn-info" value="#{msgs.btnAtualizar} " action="#{brinquedoMB.acaoListar}" ><span class="glyphicon glyphicon-refresh"></span></p:commandLink>
+	</h:panelGroup>
+		</p:panelGrid>
 
 
-		<h:dataTable  styleClass="table table-striped table-bordered table-hover table-condensed" value="#{brinquedoMB.brinquedos}" var="brin"
-			border="3">
+		<p:dataTable   value="#{brinquedoMB.brinquedos}" var="brin"
+			border="3" rowHover="true">
 
-			<h:column >
+			<p:column >
 				<f:facet   name="header">#{msgs.rotuloOpcoes}</f:facet>
-				<h:panelGrid  columns="1">
-					<h:commandLink styleClass="btn btn-primary"  value="#{msgs.btnAlterar}"
+				<p:panelGrid  columns="2">
+					<h:panelGroup>
+					<p:commandLink style="margin-right:4px;" styleClass="btn btn-primary"  value="#{msgs.btnAlterar}"
 						action="#{brinquedoMB.acaoAbrirAlteracao(brin.codigo)}" />
-					<h:commandLink style="margin-top:5px;" styleClass="btn btn-danger" value="#{msgs.btnExcluir}"
-						 onclick="return confirm('#{msgs.btnTemCertezaExcluir}')" action="#{brinquedoMB.acaoExcluir(brin.codigo)}" ><span class="glyphicon glyphicon-trash"></span></h:commandLink>
-				</h:panelGrid>
-			</h:column>
+					<p:commandLink  styleClass="btn btn-danger" value="#{msgs.btnExcluir}"
+						 onclick="return confirm('#{msgs.btnTemCertezaExcluir}')" action="#{brinquedoMB.acaoExcluir(brin.codigo)}" ><span class="glyphicon glyphicon-trash"></span></p:commandLink>
+				</h:panelGroup>		 	
+				</p:panelGrid>
+				
+			</p:column>
 
-			<h:column >
+			<p:column >
 				<f:facet    name="header">#{msgs.rotuloBrinquedoCodigo}</f:facet>
 				<h:outputText  value="#{brin.codigo}"></h:outputText>
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.rotuloBrinquedoNome}</f:facet>
 				<h:outputText  value="#{brin.nome}"></h:outputText>
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.rotuloBrinquedoFornecedor}</f:facet>
 				<h:outputText  value="#{brin.fornecedor}"></h:outputText>
-			</h:column>
+			</p:column>
 			
 			
 
 			
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.rotuloBrinquedoTipo}</f:facet>
 				<h:outputText value="#{brin.tipo.nome}"></h:outputText>
-			</h:column>
+			</p:column>
 
 			
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.rotuloBrinquedoPrecoVenda}</f:facet>
 				<h:outputText value="#{brin.precoVenda}">
 					<f:convertNumber pattern="###,###,##0.00" />
 				</h:outputText>
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.rotuloBrinquedoPrecoAluguel}</f:facet>
 				<h:outputText value="#{brin.precoAluguel}">
 					<f:convertNumber pattern="###,###,##0.00" />
 				</h:outputText>
-			</h:column>
+			</p:column>
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">
 						<h:outputText value="#{msgs.rotuloBrinquedoData}" />
 					</f:facet>
 					<h:outputText value="#{brin.dataComprado}">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:outputText>
-			</h:column>
+			</p:column>
 
-		</h:dataTable>
+		</p:dataTable>
 		
-		</div>
 		
-		</div>
 
 	</ui:define>
 
