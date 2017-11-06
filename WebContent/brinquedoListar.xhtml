@@ -54,10 +54,10 @@ xmlns:p="http://primefaces.org/ui"
 				<f:facet   name="header">#{msgs.rotuloOpcoes}</f:facet>
 				<p:panelGrid  columns="2">
 					<h:panelGroup>
-					<p:commandLink style="margin-right:4px;" styleClass="btn btn-primary"  value="#{msgs.btnAlterar}"
+					<p:commandLink  style="margin-right:4px;" styleClass="btn btn-primary"  value="#{msgs.btnAlterar}"
 						action="#{brinquedoMB.acaoAbrirAlteracao(brin.codigo)}" />
 					<p:commandLink  styleClass="btn btn-danger" value="#{msgs.btnExcluir}"
-						 onclick="return confirm('#{msgs.btnTemCertezaExcluir}')" action="#{brinquedoMB.acaoExcluir(brin.codigo)}" ><span class="glyphicon glyphicon-trash"></span></p:commandLink>
+						 action="#{brinquedoMB.acaoExcluir(brin.codigo)}" ><span class="glyphicon glyphicon-trash"></span></p:commandLink>
 				</h:panelGroup>		 	
 				</p:panelGrid>
 				

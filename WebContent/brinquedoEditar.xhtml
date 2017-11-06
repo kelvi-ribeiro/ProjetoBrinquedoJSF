@@ -12,90 +12,91 @@
 	<ui:define name="titulo">#{msgs.tituloEditarBrinquedo}</ui:define>
 
 	<ui:define name="conteudo">
-		<div class="container">
-		<div class="row">
-		<div class="page-header">
 		
-		<h1>#{msgs.titulo2EditarBrinquedo}</h1> 
-        
-        
 
-      </div>
+     <p:panelGrid columns="1">
       
-      		<div class="form-group textoGrande col-offset-6 centered">
+      		
+				<h:panelGroup>
+				<p:outputLabel value="#{msgs.campoCodigo}: " for="codigo" rendered="#{brinquedoMB.brinquedo.codigo!=null}" /> 
 				
-				<h:outputLabel value="#{msgs.campoCodigo}:" for="codigo1" rendered="#{brinquedoMB.brinquedo.codigo!=null}" /> 
-				<h:outputText value="#{brinquedoMB.brinquedo.codigo}"/>
+				
+				<h:outputText value="#{brinquedoMB.brinquedo.codigo} "/>
 					
 				
 				
-			</div>
+			
 
-			<div class="form-group textoGrande">
+			
 				
 				<h:inputHidden id="codigo" value="#{brinquedoMB.brinquedo.codigo}" /> 
 					
 				
 				
-			</div>
+			</h:panelGroup>
 			
-			<div class="form-group">
+			<h:panelGroup>
 			<h:outputLabel for="tipegoria" value="#{msgs.campoTipo}:" />
-			<h:selectOneMenu styleClass="form-control" id="tipegoria" value="#{brinquedoMB.brinquedo.tipo}"
+			<p:selectOneMenu styleClass="form-control" id="tipegoria" value="#{brinquedoMB.brinquedo.tipo}"
 				required="true" converter="tip-converter">
 				<f:selectItems value="#{brinquedoMB.tipos}" var="tip"
 					itemLabel="#{tip.nome}"></f:selectItems>
-			</h:selectOneMenu>
-			</div>
+			</p:selectOneMenu>
+			</h:panelGroup>
 			
 			
-			<div class="form-group  textoGrande">
-				<h:outputLabel for="nome" value="#{msgs.campoNome}:" />
-				<h:inputText styleClass="form-control" id="nome"
+			<h:panelGroup>
+				<p:outputLabel for="nome" value="#{msgs.campoNome}:" />
+				<p:inputText styleClass="form-control" id="nome"
 					value="#{brinquedoMB.brinquedo.nome}" required="true">
-				</h:inputText>
-			</div>
+				</p:inputText>
+			</h:panelGroup>
 			
-			<div class="form-group  textoGrande">
-			<h:outputLabel for="custo" value="#{msgs.campoPrecoCusto}:" />
-			<h:inputText id="custo" styleClass="form-control" value="#{brinquedoMB.brinquedo.precoAluguel}"
+			<h:panelGroup>
+			<p:outputLabel for="custo" value="#{msgs.campoPrecoCusto}:" />
+			<p:inputText id="custo" styleClass="form-control" value="#{brinquedoMB.brinquedo.precoAluguel}"
 				required="true">
 				<f:convertNumber pattern="###,###,##0.00" />
-			</h:inputText>
-			</div>
+			</p:inputText>
+			</h:panelGroup>
 
 			
-			<div class="form-group  textoGrande">
-			<h:outputLabel for="venda" value="#{msgs.campoPrecoVenda}:" />
-			<h:inputText id="venda" styleClass="form-control" value="#{brinquedoMB.brinquedo.precoVenda}"
+			<h:panelGroup>
+			<p:outputLabel for="venda" value="#{msgs.campoPrecoVenda}:" />
+			<p:inputText id="venda" styleClass="form-control" value="#{brinquedoMB.brinquedo.precoVenda}"
 				required="true">
 				<f:convertNumber pattern="###,###,##0.00" />
-			</h:inputText>
-			</div>
+			</p:inputText>
+			</h:panelGroup>
 			
-			<div class="form-group  textoGrande">
+			<h:panelGroup>
 			<h:outputLabel for="nome_forn" value="#{msgs.campoFornecedor}:" />
-			<h:inputText id="nome_forn" styleClass="form-control"
+			<p:inputText id="nome_forn" styleClass="form-control"
 				value="#{brinquedoMB.brinquedo.fornecedor}" required="true">
-			</h:inputText>
-			</div>
+			</p:inputText>
+			</h:panelGroup>
 			
 			
-			<div class="form-group  textoGrande">
-			<h:outputLabel value="#{msgs.campoDataComprado}:" for="data"></h:outputLabel>
-				<p:calendar id="data"  value="#{brinquedoMB.brinquedo.dataComprado}" size="110"
+			
+			<h:panelGroup>
+			<p:outputLabel value="#{msgs.campoDataComprado}:" for="data"></p:outputLabel>
+			</h:panelGroup>
+			<h:panelGroup>
+				<p:calendar  id="data"  value="#{brinquedoMB.brinquedo.dataComprado}" size="110"
 					required="true" requiredMessage="O Campo Data é obrigatório.">
 				</p:calendar>
-			</div>
-			<h:outputText value="" />
-			<h:panelGroup>
-				<h:commandButton styleClass="btn btn-success" value="#{msgs.btnSalvar}" action="#{brinquedoMB.acaoSalvar}"></h:commandButton>
-				-
-				<h:commandButton styleClass="btn btn-danger" value="#{msgs.btnCancelar}"
-					action="#{brinquedoMB.acaoCancelar}" immediate="true"></h:commandButton>
+			
+			
 			</h:panelGroup>
-		</div>
-		</div>
+			
+			<h:panelGroup>
+				<p:commandButton style="margin-right:5px;" styleClass="btn btn-success" value="#{msgs.btnSalvar}" action="#{brinquedoMB.acaoSalvar}"></p:commandButton>
+				
+				<p:commandButton  styleClass="btn btn-danger" value="#{msgs.btnCancelar}"
+					action="#{brinquedoMB.acaoCancelar}" immediate="true"></p:commandButton>
+			</h:panelGroup>
+			
+		</p:panelGrid>
 
 	</ui:define>
 
