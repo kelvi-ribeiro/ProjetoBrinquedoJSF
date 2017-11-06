@@ -41,7 +41,7 @@ xmlns:p="http://primefaces.org/ui"
 		
 			
 			<h:outputText value="" />
-			<p:commandLink style="margin-right:4px;" styleClass="btn btn-success" value="#{msgs.btnPesquisar}" action="#{brinquedoMB.acaoPesquisar}" ><span class="glyphicon glyphicon-search"></span></p:commandLink>
+			<p:commandLink ajax="false" style="margin-right:4px;" styleClass="btn btn-success" value="#{msgs.btnPesquisar}" action="#{brinquedoMB.acaoPesquisar}" ><span class="glyphicon glyphicon-search"></span></p:commandLink>
 			<p:commandLink styleClass="btn btn-info" value="#{msgs.btnAtualizar} " action="#{brinquedoMB.acaoListar}" ><span class="glyphicon glyphicon-refresh"></span></p:commandLink>
 	</h:panelGroup>
 		</p:panelGrid>
