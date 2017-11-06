@@ -56,7 +56,7 @@ xmlns:p="http://primefaces.org/ui"
 					<h:panelGroup>
 					<p:commandLink  style="margin-right:4px;" styleClass="btn btn-primary"  value="#{msgs.btnAlterar}"
 						action="#{brinquedoMB.acaoAbrirAlteracao(brin.codigo)}" />
-					<p:commandLink  styleClass="btn btn-danger" value="#{msgs.btnExcluir}"
+					<p:commandLink onclick="if (! confirm('#{msgs.btnTemCertezaExcluir}')) return false" styleClass="btn btn-danger" value="#{msgs.btnExcluir}"
 						 action="#{brinquedoMB.acaoExcluir(brin.codigo)}" ><span class="glyphicon glyphicon-trash"></span></p:commandLink>
 				</h:panelGroup>		 	
 				</p:panelGrid>
