@@ -15,10 +15,10 @@ xmlns:p="http://primefaces.org/ui"
 	
 	<p:panelGrid columns="8" >
 	<h:panelGroup style="padding-right:9px;">
-		<p:commandLink  style="margin-right:8px;" styleClass="btn btn-warning" action="#{brinquedoMB.acaoAbrirInclusao}"
+		<p:commandLink immediate="true" ajax="false"  style="margin-right:8px;" styleClass="btn btn-warning" action="#{brinquedoMB.acaoAbrirInclusao}"
 			value="#{msgs.btnNovoBrinquedo}"></p:commandLink>
 		
-		<p:commandLink   styleClass="btn btn-info" action="#{loginMB.acaoExibirHome}" value="#{msgs.btnVoltar}"></p:commandLink>
+		<p:commandLink  ajax="false"  styleClass="btn btn-info" action="#{loginMB.acaoExibirHome}" value="#{msgs.btnVoltar}"></p:commandLink>
 	</h:panelGroup>
 	
 	
@@ -41,8 +41,8 @@ xmlns:p="http://primefaces.org/ui"
 		
 			
 			<h:outputText value="" />
-			<p:commandLink ajax="false" style="margin-right:4px;" styleClass="btn btn-success" value="#{msgs.btnPesquisar}" action="#{brinquedoMB.acaoPesquisar}" ><span class="glyphicon glyphicon-search"></span></p:commandLink>
-			<p:commandLink styleClass="btn btn-info" value="#{msgs.btnAtualizar} " action="#{brinquedoMB.acaoListar}" ><span class="glyphicon glyphicon-refresh"></span></p:commandLink>
+			<p:commandLink style="margin-right:4px;" ajax="false" styleClass="btn btn-success" value="#{msgs.btnPesquisar}" action="#{brinquedoMB.acaoPesquisar}" ><span class="glyphicon glyphicon-search"></span></p:commandLink>
+			<p:commandLink styleClass="btn btn-info" ajax="false" value="#{msgs.btnAtualizar} " action="#{brinquedoMB.acaoListar}" ><span class="glyphicon glyphicon-refresh"></span></p:commandLink>
 	</h:panelGroup>
 		</p:panelGrid>
 
@@ -54,9 +54,9 @@ xmlns:p="http://primefaces.org/ui"
 				<f:facet   name="header">#{msgs.rotuloOpcoes}</f:facet>
 				<p:panelGrid  columns="2">
 					<h:panelGroup>
-					<p:commandLink  style="margin-right:4px;" styleClass="btn btn-primary"  value="#{msgs.btnAlterar}"
+					<p:commandLink ajax="false"  style="margin-right:4px;" styleClass="btn btn-primary"  value="#{msgs.btnAlterar}"
 						action="#{brinquedoMB.acaoAbrirAlteracao(brin.codigo)}" />
-					<p:commandLink onclick="if (! confirm('#{msgs.btnTemCertezaExcluir}')) return false" styleClass="btn btn-danger" value="#{msgs.btnExcluir}"
+					<p:commandLink ajax="false"  onclick="if (! confirm('#{msgs.btnTemCertezaExcluir}')) return false"    styleClass="btn btn-danger" value="#{msgs.btnExcluir}"
 						 action="#{brinquedoMB.acaoExcluir(brin.codigo)}" ><span class="glyphicon glyphicon-trash"></span></p:commandLink>
 				</h:panelGroup>		 	
 				</p:panelGrid>

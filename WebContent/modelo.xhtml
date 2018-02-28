@@ -20,7 +20,7 @@
 
 <h:body style="background: url('img/images.jpg') repeat !important;">
 
-	<h:form>
+	<h:form id="form" prepenId="false">
 <p:panelGrid   columns="8" rendered="#{ not empty loginMB.usuario }">
 	
 	
@@ -42,15 +42,15 @@
         
         
  
-        <p:menuitem type="button" 
+        <p:menuitem ajax="false"
             value="#{msgs.btnCadastro}" 
              action="#{brinquedoMB.acaoListar}" icon="ui-icon-circle-triangle-e
  
  " />
           
-            <p:menuitem type="button" 
+            <p:menuitem ajax="false"
             value="#{msgs.btnSair}" 
-             actionListener="#{loginMB.acaoSair}" icon="ui-icon-extlink" />
+             action="#{loginMB.acaoSair}" icon="ui-icon-extlink" > </p:menuitem>
              
            
         
@@ -64,8 +64,7 @@
 	</p:panelGrid>
 	
 	
-		<h:messages errorStyle="color: red" infoStyle="color: blue"
-			warnStyle="color: yellow" />
+		<p:messages />
 
 		<ui:insert name="cabecalho"></ui:insert>
 		<ui:insert name="conteudo"></ui:insert>
